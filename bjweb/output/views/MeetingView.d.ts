@@ -1,5 +1,5 @@
-import { Component } from 'react';
-import Managers from '../stores/Managers';
+import { Component } from "react";
+import Managers from "../stores/Managers";
 interface Props {
     managers: Managers;
 }

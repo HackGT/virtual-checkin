@@ -64,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "12389e164170cb595fae";
+/******/ 	var hotCurrentHash = "0574c2ed1f5ec3787fcf";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -35312,256 +35312,6 @@ exports.default = JoiningView;
 
 /***/ }),
 
-/***/ "./src/views/MeetingView.tsx":
-/*!***********************************!*\
-  !*** ./src/views/MeetingView.tsx ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-const mobx_react_1 = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-react/dist/mobx-react.module.js");
-const MeetingViewModel_1 = __importDefault(__webpack_require__(/*! ./MeetingViewModel */ "./src/views/MeetingViewModel.ts"));
-const MeetingView_1 = __webpack_require__(/*! ./styles/MeetingView */ "./src/views/styles/MeetingView.ts");
-let MeetingView = class MeetingView extends react_1.Component {
-    constructor(props) {
-        super(props);
-        this.viewModel = new MeetingViewModel_1.default(props.managers);
-    }
-    get colonSeparator() {
-        return react_1.default.createElement(MeetingView_1.MeetingDetailsTableData, null, ":");
-    }
-    render() {
-        return (react_1.default.createElement(MeetingView_1.MeetingControlContainer, null,
-            react_1.default.createElement(MeetingView_1.MeetingDetailsTable, null,
-                react_1.default.createElement(MeetingView_1.MeetingDetailsTableBody, null,
-                    react_1.default.createElement(MeetingView_1.MeetingDetailsTableRow, null,
-                        react_1.default.createElement(MeetingView_1.MeetingDetailsTableData, null,
-                            react_1.default.createElement(MeetingView_1.MeetingDetailsTableContent, null, "Name")),
-                        this.colonSeparator,
-                        react_1.default.createElement(MeetingView_1.MeetingDetailsTableData, null,
-                            react_1.default.createElement(MeetingView_1.JoinName, { value: this.viewModel.joinName, onChange: this.viewModel.setJoinName }))),
-                    react_1.default.createElement(MeetingView_1.MeetingDetailsTableRow, null,
-                        react_1.default.createElement(MeetingView_1.MeetingDetailsTableData, null,
-                            react_1.default.createElement(MeetingView_1.MeetingDetailsTableContent, null, "No of Participants")),
-                        this.colonSeparator,
-                        react_1.default.createElement(MeetingView_1.MeetingDetailsTableData, null,
-                            react_1.default.createElement(MeetingView_1.MeetingDetailsTableContent, null, this.viewModel.participantsCount))),
-                    react_1.default.createElement(MeetingView_1.MeetingDetailsTableRow, null,
-                        react_1.default.createElement(MeetingView_1.MeetingDetailsTableData, null,
-                            react_1.default.createElement(MeetingView_1.MeetingDetailsTableContent, null, "Content")),
-                        this.colonSeparator,
-                        react_1.default.createElement(MeetingView_1.MeetingDetailsTableData, null,
-                            react_1.default.createElement(MeetingView_1.MeetingDetailsTableContent, null, this.viewModel.contentStatus))),
-                    react_1.default.createElement(MeetingView_1.MeetingDetailsTableRow, null,
-                        react_1.default.createElement(MeetingView_1.MeetingDetailsTableData, null,
-                            react_1.default.createElement(MeetingView_1.MeetingDetailsTableContent, null, "Meeting status")),
-                        this.colonSeparator,
-                        react_1.default.createElement(MeetingView_1.MeetingDetailsTableData, null,
-                            react_1.default.createElement(MeetingView_1.MeetingDetailsTableContent, null, this.viewModel.meetingStatus))),
-                    react_1.default.createElement(MeetingView_1.MeetingDetailsTableRow, null,
-                        react_1.default.createElement(MeetingView_1.MeetingDetailsTableData, null,
-                            react_1.default.createElement(MeetingView_1.MeetingDetailsTableContent, null, "Audio control")),
-                        this.colonSeparator,
-                        react_1.default.createElement(MeetingView_1.MeetingDetailsTableData, null,
-                            react_1.default.createElement(MeetingView_1.MeetingControlButton, { onClick: this.viewModel.toggleAudioState }, this.viewModel.audioStatus))),
-                    react_1.default.createElement(MeetingView_1.MeetingDetailsTableRow, null,
-                        react_1.default.createElement(MeetingView_1.MeetingDetailsTableData, null,
-                            react_1.default.createElement(MeetingView_1.MeetingDetailsTableContent, null, "Video control")),
-                        this.colonSeparator,
-                        react_1.default.createElement(MeetingView_1.MeetingDetailsTableData, null,
-                            react_1.default.createElement(MeetingView_1.MeetingControlButton, { onClick: this.viewModel.toggleVideoState }, this.viewModel.videoStatus))),
-                    react_1.default.createElement(MeetingView_1.MeetingDetailsTableRow, null,
-                        react_1.default.createElement(MeetingView_1.MeetingDetailsTableData, null,
-                            react_1.default.createElement(MeetingView_1.MeetingDetailsTableContent, null, "Screen sharing")),
-                        this.colonSeparator,
-                        react_1.default.createElement(MeetingView_1.MeetingDetailsTableData, null,
-                            react_1.default.createElement(MeetingView_1.MeetingControlButton, { onClick: this.viewModel.toggleScreenShare }, this.viewModel.sharingStatus))))),
-            react_1.default.createElement(MeetingView_1.LeaveControlButton, { onClick: this.viewModel.leaveMeeting }, this.viewModel.callControlInfo)));
-    }
-};
-MeetingView = __decorate([
-    mobx_react_1.observer
-], MeetingView);
-exports.default = MeetingView;
-
-
-/***/ }),
-
-/***/ "./src/views/MeetingViewModel.ts":
-/*!***************************************!*\
-  !*** ./src/views/MeetingViewModel.ts ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const mobx_1 = __webpack_require__(/*! mobx */ "./node_modules/mobx/lib/mobx.module.js");
-class MeetingViewModel {
-    constructor(managers) {
-        this.appManager = managers.appManager;
-        this.embedSDKManager = managers.embedSDKManager;
-    }
-    get joinName() {
-        return (this.embedSDKManager.selfParticipant && this.embedSDKManager.selfParticipant.name) ? this.embedSDKManager.selfParticipant.name : "EmbedGuest";
-    }
-    get participantsCount() {
-        return this.embedSDKManager.participants ? this.embedSDKManager.participants.length : 1;
-    }
-    get meetingStatus() {
-        let meetingStatus = "";
-        switch (this.embedSDKManager.connectionState) {
-            case "Connecting":
-                meetingStatus = "Connecting to Meeting";
-                break;
-            case "Connected":
-                meetingStatus = "Connected to Meeting";
-                break;
-            case "Reconnecting":
-                meetingStatus = "Reconnecting to Meeting";
-                break;
-            case "Disconnected":
-                meetingStatus = "Disconnected from Meeting";
-                break;
-        }
-        return meetingStatus;
-    }
-    get contentStatus() {
-        return this.embedSDKManager.sharingScreen ? "Content sharing" : this.embedSDKManager.receivingScreenShare ? "Receiving" : "Not Receiving";
-    }
-    get audioStatus() {
-        return this.embedSDKManager.audioMuted ? "UnMute Audio" : "Mute Audio";
-    }
-    get videoStatus() {
-        return this.embedSDKManager.videoMuted ? "UnMute Video" : "Mute Video";
-    }
-    get sharingStatus() {
-        return this.embedSDKManager.sharingScreen ? "Stop sharing" : "Start sharing";
-    }
-    get callControlInfo() {
-        return this.isDisconnected ? "ReJoin Meeting" : "Leave Meeting";
-    }
-    get isDisconnected() {
-        return (this.embedSDKManager.connectionState === "Disconnected");
-    }
-    setJoinName(event) {
-        let joinName = event.target.value;
-        if (joinName) {
-            this.embedSDKManager.setName(joinName);
-        }
-    }
-    toggleVideoState() {
-        this.embedSDKManager.setVideoMuted();
-    }
-    toggleAudioState() {
-        this.embedSDKManager.setAudioMuted();
-    }
-    toggleScreenShare() {
-        if (this.embedSDKManager.sharingScreen) {
-            this.embedSDKManager.stopScreenShare();
-        }
-        else {
-            this.embedSDKManager.startScreenShare();
-        }
-    }
-    leaveMeeting() {
-        if (this.isDisconnected) {
-            let joinProps = this.appManager.joinProps;
-            let iframeSelectorId = joinProps.iFrameProps.selectorId;
-            document.querySelector(iframeSelectorId).removeChild(document.querySelector(iframeSelectorId).childNodes[0]);
-            this.embedSDKManager.joinMeeting(this.appManager.joinProps);
-        }
-        else {
-            this.embedSDKManager.leave();
-        }
-    }
-}
-__decorate([
-    mobx_1.computed
-], MeetingViewModel.prototype, "joinName", null);
-__decorate([
-    mobx_1.computed
-], MeetingViewModel.prototype, "participantsCount", null);
-__decorate([
-    mobx_1.computed
-], MeetingViewModel.prototype, "meetingStatus", null);
-__decorate([
-    mobx_1.computed
-], MeetingViewModel.prototype, "contentStatus", null);
-__decorate([
-    mobx_1.computed
-], MeetingViewModel.prototype, "audioStatus", null);
-__decorate([
-    mobx_1.computed
-], MeetingViewModel.prototype, "videoStatus", null);
-__decorate([
-    mobx_1.computed
-], MeetingViewModel.prototype, "sharingStatus", null);
-__decorate([
-    mobx_1.computed
-], MeetingViewModel.prototype, "callControlInfo", null);
-__decorate([
-    mobx_1.computed
-], MeetingViewModel.prototype, "isDisconnected", null);
-__decorate([
-    mobx_1.action.bound
-], MeetingViewModel.prototype, "setJoinName", null);
-__decorate([
-    mobx_1.action.bound
-], MeetingViewModel.prototype, "toggleVideoState", null);
-__decorate([
-    mobx_1.action.bound
-], MeetingViewModel.prototype, "toggleAudioState", null);
-__decorate([
-    mobx_1.action.bound
-], MeetingViewModel.prototype, "toggleScreenShare", null);
-__decorate([
-    mobx_1.action.bound
-], MeetingViewModel.prototype, "leaveMeeting", null);
-exports.default = MeetingViewModel;
-
-
-/***/ }),
-
 /***/ "./src/views/PreMeetingView.tsx":
 /*!**************************************!*\
   !*** ./src/views/PreMeetingView.tsx ***!
@@ -35612,59 +35362,14 @@ let PreMeetingView = class PreMeetingView extends react_1.Component {
     render() {
         return (react_1.default.createElement(PreMeeting_1.ViewContainer, null,
             react_1.default.createElement(PreMeeting_1.GreetingsHeader, null, "Welcome!"),
-            react_1.default.createElement(PreMeeting_1.GreetingsSubHeader, null, "Sample for BlueJeans meeting in Embed mode"),
+            react_1.default.createElement(PreMeeting_1.GreetingsSubHeader, null, "Sample WebRTC App for BlueJeans Meeting For HackGT :)"),
             react_1.default.createElement(PreMeeting_1.MeetingInfoContainer, null,
                 react_1.default.createElement(PreMeeting_1.MeetingID, { placeholder: "Meeting ID", value: this.viewmodel.meetingID, onChange: this.viewmodel.setMeetingId }),
                 react_1.default.createElement("br", null),
                 react_1.default.createElement(PreMeeting_1.Passcode, { placeholder: "Passcode(optional)", value: this.viewmodel.passcode, onChange: this.viewmodel.setPasscode }),
                 react_1.default.createElement("br", null),
                 react_1.default.createElement(PreMeeting_1.JoinName, { placeholder: "Name", value: this.viewmodel.joinName, onChange: this.viewmodel.setJoinName }),
-                react_1.default.createElement("br", null),
-                react_1.default.createElement(PreMeeting_1.OptionsHeader, null, "UI customisation(Optional)"),
-                react_1.default.createElement(PreMeeting_1.UIOptionsContainer, null,
-                    react_1.default.createElement(PreMeeting_1.UIOptions, null,
-                        react_1.default.createElement("tr", null,
-                            react_1.default.createElement(PreMeeting_1.OptionsData, null,
-                                react_1.default.createElement(PreMeeting_1.CheckBox, { type: "checkbox", checked: this.viewmodel.disableFullScreenToggle, onChange: this.viewmodel.setFullScreenToggle }),
-                                react_1.default.createElement("label", null, "Disable Full Screen Toggle")),
-                            react_1.default.createElement(PreMeeting_1.OptionsData, null,
-                                react_1.default.createElement(PreMeeting_1.CheckBox, { type: "checkbox", checked: this.viewmodel.hideMeetingFooter, onChange: this.viewmodel.setFooterVisibility }),
-                                react_1.default.createElement("label", null, "Hide Meeting Footer")),
-                            react_1.default.createElement(PreMeeting_1.OptionsData, null,
-                                react_1.default.createElement(PreMeeting_1.CheckBox, { type: "checkbox", checked: this.viewmodel.hideChatPanel, onChange: this.viewmodel.setChatPanelVisibility }),
-                                react_1.default.createElement("label", null, "Hide Chat Panel"))),
-                        react_1.default.createElement("tr", null,
-                            react_1.default.createElement(PreMeeting_1.OptionsData, null,
-                                react_1.default.createElement(PreMeeting_1.CheckBox, { type: "checkbox", checked: this.viewmodel.hideAppsPanel, onChange: this.viewmodel.setAppsPanelVisibility }),
-                                react_1.default.createElement("label", null, "Hide Apps Panel")),
-                            react_1.default.createElement(PreMeeting_1.OptionsData, null,
-                                react_1.default.createElement(PreMeeting_1.CheckBox, { type: "checkbox", checked: this.viewmodel.lockMeetingControls, onChange: this.viewmodel.setMeetingControlLockState }),
-                                react_1.default.createElement("label", null, "Lock meeting controls")),
-                            react_1.default.createElement(PreMeeting_1.OptionsData, null,
-                                react_1.default.createElement(PreMeeting_1.CheckBox, { type: "checkbox", checked: this.viewmodel.hideCopyLink, onChange: this.viewmodel.setCopyLinkVisibility }),
-                                react_1.default.createElement("label", null, "Hide Copy link"))),
-                        react_1.default.createElement("tr", null,
-                            react_1.default.createElement(PreMeeting_1.OptionsData, null,
-                                react_1.default.createElement(PreMeeting_1.CheckBox, { type: "checkbox", checked: this.viewmodel.hideRatingScreen, onChange: this.viewmodel.setRatingScreenVisibility }),
-                                react_1.default.createElement("label", null, "Disable Meeting Rating screens")),
-                            react_1.default.createElement(PreMeeting_1.OptionsData, null,
-                                react_1.default.createElement(PreMeeting_1.CheckBox, { type: "checkbox", checked: this.viewmodel.disableAppPitches, onChange: this.viewmodel.setDisableAppPitch }),
-                                react_1.default.createElement("label", null, "Disable app pitches"))))),
-                react_1.default.createElement(PreMeeting_1.BGOptionContainer, null,
-                    react_1.default.createElement(PreMeeting_1.BGColorTextLabel, null, "Background Color :"),
-                    react_1.default.createElement(PreMeeting_1.BGColorTextBox, { placeholder: "#FFFFFF or linear-gradient(#6600CC, #6600FF)", value: this.viewmodel.backgroundColor, onChange: this.viewmodel.setBackgroundColor }),
-                    react_1.default.createElement(PreMeeting_1.BGColorHint, null, "Supported format : #FFFFFF (or) linear-gradient(#6600CC, #6600FF)")),
-                react_1.default.createElement(PreMeeting_1.IFramePropsContainer, null,
-                    react_1.default.createElement(PreMeeting_1.IFrameLabel, null, "Meeting container specifications(Optional)"),
-                    react_1.default.createElement(PreMeeting_1.IFrameProps, null,
-                        react_1.default.createElement(PreMeeting_1.PropsSpecs, { placeholder: "Width", value: this.viewmodel.meetingContainerWidth, onChange: this.viewmodel.setMeetingContainerWidth }),
-                        react_1.default.createElement(PreMeeting_1.PropsHint, null, "Default 100%, Example : 100% (or) 300px")),
-                    react_1.default.createElement(PreMeeting_1.IFrameProps, null,
-                        react_1.default.createElement(PreMeeting_1.PropsSpecs, { placeholder: "Height", value: this.viewmodel.meetingContainerHeight, onChange: this.viewmodel.setMeetingContainerHeight }),
-                        react_1.default.createElement(PreMeeting_1.PropsHint, null, "Default 100%, Example : 100% (or) 300px")),
-                    react_1.default.createElement(PreMeeting_1.IFrameProps, null,
-                        react_1.default.createElement(PreMeeting_1.PropsSpecs, { placeholder: "Container", value: this.viewmodel.meetingContainerRef, onChange: this.viewmodel.setMeetingContainerRef }),
-                        react_1.default.createElement(PreMeeting_1.PropsHint, null, "Default: Attach to the body, Example : #iframeContainer (or) .iframeContainer")))),
+                react_1.default.createElement("br", null)),
             react_1.default.createElement(PreMeeting_1.JoinButton, { onClick: this.viewmodel.joinMeeting }, "Join Meeting")));
     }
 };
@@ -35939,7 +35644,6 @@ const mobx_react_1 = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-
 const mobx_1 = __webpack_require__(/*! mobx */ "./node_modules/mobx/lib/mobx.module.js");
 const AppManager_1 = __webpack_require__(/*! ../stores/AppManager */ "./src/stores/AppManager.ts");
 const PreMeetingView_1 = __importDefault(__webpack_require__(/*! ./PreMeetingView */ "./src/views/PreMeetingView.tsx"));
-const MeetingView_1 = __importDefault(__webpack_require__(/*! ./MeetingView */ "./src/views/MeetingView.tsx"));
 const JoiningView_1 = __importDefault(__webpack_require__(/*! ./JoiningView */ "./src/views/JoiningView.tsx"));
 const AppViewModel_1 = __importDefault(__webpack_require__(/*! ./AppViewModel */ "./src/views/AppViewModel.ts"));
 const Common_1 = __webpack_require__(/*! ./styles/Common */ "./src/views/styles/Common.ts");
@@ -35951,9 +35655,9 @@ let SampleApp = class SampleApp extends react_1.Component {
     get viewToShow() {
         switch (this.viewModel.appState) {
             case AppManager_1.AppState.PRE_MEETING:
-                return this.viewModel.joiningStarted ? react_1.default.createElement(JoiningView_1.default, null) : react_1.default.createElement(PreMeetingView_1.default, { managers: this.props.managers });
+                return this.viewModel.joiningStarted ? (react_1.default.createElement(JoiningView_1.default, null)) : (react_1.default.createElement(PreMeetingView_1.default, { managers: this.props.managers }));
             case AppManager_1.AppState.IN_MEETING:
-                return react_1.default.createElement(MeetingView_1.default, { managers: this.props.managers });
+            //return <MeetingView managers={ this.props.managers }/>
         }
     }
     render() {
@@ -36014,66 +35718,6 @@ exports.JoiningMessage = styled_components_1.default.div `
 
 /***/ }),
 
-/***/ "./src/views/styles/MeetingView.ts":
-/*!*****************************************!*\
-  !*** ./src/views/styles/MeetingView.ts ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.JoinName = exports.LeaveControlButton = exports.MeetingControlButton = exports.MeetingDetailsTableContent = exports.MeetingDetailsTableData = exports.MeetingDetailsTableRow = exports.MeetingDetailsTableBody = exports.MeetingDetailsTable = exports.MeetingControlContainer = void 0;
-const styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
-const Common_1 = __webpack_require__(/*! ./Common */ "./src/views/styles/Common.ts");
-exports.MeetingControlContainer = styled_components_1.default.div `
-    width: 400px;
-    margin-top: 80px;
-    margin-left: 30px;
-`;
-exports.MeetingDetailsTable = styled_components_1.default.table `
-    
-`;
-exports.MeetingDetailsTableBody = styled_components_1.default.tbody `
-    
-`;
-exports.MeetingDetailsTableRow = styled_components_1.default.tr `
-`;
-exports.MeetingDetailsTableData = styled_components_1.default.td `
-`;
-exports.MeetingDetailsTableContent = styled_components_1.default.div `
-    margin: 8px auto;
-    width: 180px;
-`;
-exports.MeetingControlButton = styled_components_1.default.button `
-    width: 180px;
-    display: block;
-    padding: 4px;
-    margin: 8px auto;
-    border-radius: 4px;
-    background: black;
-    color: white;
-    font-size: 14px;
-    font-weight: bolder;
-    cursor: pointer;
-`;
-exports.LeaveControlButton = styled_components_1.default(exports.MeetingControlButton) `
-    width: 232px;
-    margin: 36px auto;
-    padding: 8px;
-    font-size: 18px;
-`;
-exports.JoinName = styled_components_1.default(Common_1.TextBox) `
-    width: 160px;
-`;
-
-
-/***/ }),
-
 /***/ "./src/views/styles/PreMeeting.ts":
 /*!****************************************!*\
   !*** ./src/views/styles/PreMeeting.ts ***!
@@ -36091,68 +35735,62 @@ exports.PropsHint = exports.PropsSpecs = exports.IFrameProps = exports.IFrameLab
 const styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 const Common_1 = __webpack_require__(/*! ./Common */ "./src/views/styles/Common.ts");
 exports.ViewContainer = styled_components_1.default.div `
-    margin: auto;
-    text-align: center;
+  margin: auto;
+  text-align: center;
 `;
 exports.GreetingsHeader = styled_components_1.default.div `
-    font-size: 36px;
-    margin: 8px;
+  font-size: 36px;
+  margin: 8px;
 `;
 exports.GreetingsSubHeader = styled_components_1.default.div `
-    font-size: 24px;
-    margin: 16px;
-    font-family: cursive;
+  font-size: 24px;
+  margin: 16px;
+  // font-family: cursive;
 `;
 exports.MeetingInfoContainer = styled_components_1.default.div `
-    width: fit-content;
-    margin: auto;
-    display: inline-block;
+  width: fit-content;
+  margin: auto;
+  display: inline-block;
 `;
-exports.MeetingID = styled_components_1.default(Common_1.TextBox) `
-`;
-exports.Passcode = styled_components_1.default(Common_1.TextBox) `
-`;
-exports.JoinName = styled_components_1.default(Common_1.TextBox) `
-`;
+exports.MeetingID = styled_components_1.default(Common_1.TextBox) ``;
+exports.Passcode = styled_components_1.default(Common_1.TextBox) ``;
+exports.JoinName = styled_components_1.default(Common_1.TextBox) ``;
 exports.JoinButton = styled_components_1.default.button `
-    width: 232px;
-    display: block;
-    margin: 36px auto;
-    padding: 8px;
-    border-radius: 4px;
-    background: black;
-    color: white;
-    font-size: 18px;
-    font-weight: bolder;
-    cursor: pointer;
+  width: 232px;
+  display: block;
+  margin: 36px auto;
+  padding: 8px;
+  border-radius: 4px;
+  background: black;
+  color: white;
+  font-size: 18px;
+  font-weight: bolder;
+  cursor: pointer;
 `;
 exports.UIOptionsContainer = styled_components_1.default.table `
-    text-align: left;
-    margin-top: 8px;
-    background: lightgray;
+  text-align: left;
+  margin-top: 8px;
+  background: lightgray;
 `;
-exports.UIOptions = styled_components_1.default.tbody `
-`;
+exports.UIOptions = styled_components_1.default.tbody ``;
 exports.OptionsHeader = styled_components_1.default.span `
-    display: block;
-    text-align: left;
-    font-weight: bolder;
-    margin-top: 30px;
+  display: block;
+  text-align: left;
+  font-weight: bolder;
+  margin-top: 30px;
 `;
 exports.OptionsData = styled_components_1.default.td `
-    min-width: 300px;
+  min-width: 300px;
 `;
-exports.CheckBox = styled_components_1.default.input `
-`;
+exports.CheckBox = styled_components_1.default.input ``;
 exports.BGOptionContainer = styled_components_1.default.div `
-    background: lightgray;
-    padding: 10px;
+  background: lightgray;
+  padding: 10px;
 `;
-exports.BGColorTextLabel = styled_components_1.default.span `
-`;
+exports.BGColorTextLabel = styled_components_1.default.span ``;
 exports.BGColorTextBox = styled_components_1.default(Common_1.TextBox) `
-    width: 400px;
-    margin: 10px;
+  width: 400px;
+  margin: 10px;
 `;
 exports.BGColorHint = styled_components_1.default.span `
     font-size: 10px
@@ -36160,31 +35798,31 @@ exports.BGColorHint = styled_components_1.default.span `
     display: block;
 `;
 exports.IFramePropsContainer = styled_components_1.default.div `
-    width: 100%;
-    margin: auto;
+  width: 100%;
+  margin: auto;
 `;
 exports.IFrameLabel = styled_components_1.default.span `
-    display: block;
-    text-align: left;
-    font-weight: bolder;
-    margin-top: 30px;
-    margin-bottom: 10px;
+  display: block;
+  text-align: left;
+  font-weight: bolder;
+  margin-top: 30px;
+  margin-bottom: 10px;
 `;
 exports.IFrameProps = styled_components_1.default.div `
-    background: darkgray;
-    text-align: left;
-    padding: 8px;
+  background: darkgray;
+  text-align: left;
+  padding: 8px;
 `;
 exports.PropsSpecs = styled_components_1.default.input `
-    display: inline-block;
-    width: 200px;
+  display: inline-block;
+  width: 200px;
 `;
 exports.PropsHint = styled_components_1.default.span `
-    display: inline-block;
-    font-size: 12px;
-    font-style: italic;
-    font-weight: 600;
-    margin-left: 12px;
+  display: inline-block;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 600;
+  margin-left: 12px;
 `;
 
 

@@ -46,7 +46,7 @@ export default class PreMeetingView extends Component<Props> {
       <ViewContainer>
         <GreetingsHeader>Welcome!</GreetingsHeader>
         <GreetingsSubHeader>
-          Sample for BlueJeans meeting in Embed mode
+          Sample WebRTC App for BlueJeans Meeting For HackGT :)
         </GreetingsSubHeader>
         <MeetingInfoContainer>
           <MeetingID
@@ -67,124 +67,6 @@ export default class PreMeetingView extends Component<Props> {
             onChange={this.viewmodel.setJoinName}
           />
           <br />
-          <OptionsHeader>UI customisation(Optional)</OptionsHeader>
-          <UIOptionsContainer>
-            <UIOptions>
-              <tr>
-                <OptionsData>
-                  <CheckBox
-                    type="checkbox"
-                    checked={this.viewmodel.disableFullScreenToggle}
-                    onChange={this.viewmodel.setFullScreenToggle}
-                  />
-                  <label>Disable Full Screen Toggle</label>
-                </OptionsData>
-                <OptionsData>
-                  <CheckBox
-                    type="checkbox"
-                    checked={this.viewmodel.hideMeetingFooter}
-                    onChange={this.viewmodel.setFooterVisibility}
-                  />
-                  <label>Hide Meeting Footer</label>
-                </OptionsData>
-                <OptionsData>
-                  <CheckBox
-                    type="checkbox"
-                    checked={this.viewmodel.hideChatPanel}
-                    onChange={this.viewmodel.setChatPanelVisibility}
-                  />
-                  <label>Hide Chat Panel</label>
-                </OptionsData>
-              </tr>
-              <tr>
-                <OptionsData>
-                  <CheckBox
-                    type="checkbox"
-                    checked={this.viewmodel.hideAppsPanel}
-                    onChange={this.viewmodel.setAppsPanelVisibility}
-                  />
-                  <label>Hide Apps Panel</label>
-                </OptionsData>
-                <OptionsData>
-                  <CheckBox
-                    type="checkbox"
-                    checked={this.viewmodel.lockMeetingControls}
-                    onChange={this.viewmodel.setMeetingControlLockState}
-                  />
-                  <label>Lock meeting controls</label>
-                </OptionsData>
-                <OptionsData>
-                  <CheckBox
-                    type="checkbox"
-                    checked={this.viewmodel.hideCopyLink}
-                    onChange={this.viewmodel.setCopyLinkVisibility}
-                  />
-                  <label>Hide Copy link</label>
-                </OptionsData>
-              </tr>
-              <tr>
-                <OptionsData>
-                  <CheckBox
-                    type="checkbox"
-                    checked={this.viewmodel.hideRatingScreen}
-                    onChange={this.viewmodel.setRatingScreenVisibility}
-                  />
-                  <label>Disable Meeting Rating screens</label>
-                </OptionsData>
-                <OptionsData>
-                  <CheckBox
-                    type="checkbox"
-                    checked={this.viewmodel.disableAppPitches}
-                    onChange={this.viewmodel.setDisableAppPitch}
-                  />
-                  <label>Disable app pitches</label>
-                </OptionsData>
-              </tr>
-            </UIOptions>
-          </UIOptionsContainer>
-          <BGOptionContainer>
-            <BGColorTextLabel>Background Color :</BGColorTextLabel>
-            <BGColorTextBox
-              placeholder="#FFFFFF or linear-gradient(#6600CC, #6600FF)"
-              value={this.viewmodel.backgroundColor}
-              onChange={this.viewmodel.setBackgroundColor}
-            />
-            <BGColorHint>
-              Supported format : #FFFFFF (or) linear-gradient(#6600CC, #6600FF)
-            </BGColorHint>
-          </BGOptionContainer>
-          <IFramePropsContainer>
-            <IFrameLabel>
-              Meeting container specifications(Optional)
-            </IFrameLabel>
-            <IFrameProps>
-              <PropsSpecs
-                placeholder="Width"
-                value={this.viewmodel.meetingContainerWidth}
-                onChange={this.viewmodel.setMeetingContainerWidth}
-              />
-              <PropsHint>Default 100%, Example : 100% (or) 300px</PropsHint>
-            </IFrameProps>
-            <IFrameProps>
-              <PropsSpecs
-                placeholder="Height"
-                value={this.viewmodel.meetingContainerHeight}
-                onChange={this.viewmodel.setMeetingContainerHeight}
-              />
-              <PropsHint>Default 100%, Example : 100% (or) 300px</PropsHint>
-            </IFrameProps>
-            <IFrameProps>
-              <PropsSpecs
-                placeholder="Container"
-                value={this.viewmodel.meetingContainerRef}
-                onChange={this.viewmodel.setMeetingContainerRef}
-              />
-              <PropsHint>
-                Default: Attach to the body, Example : #iframeContainer (or)
-                .iframeContainer
-              </PropsHint>
-            </IFrameProps>
-          </IFramePropsContainer>
         </MeetingInfoContainer>
         <JoinButton onClick={this.viewmodel.joinMeeting}>
           Join Meeting
