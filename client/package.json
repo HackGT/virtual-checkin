@@ -16,11 +16,16 @@
     "@types/react-dom": "^16.9.8",
     "axios": "^0.21.1",
     "framer-motion": "^3.1.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "16.8.0",
+    "react-dom": "16.8.0",
     "react-scripts": "4.0.1",
     "typescript": "^4.0.3",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "bluejeans-webrtc-embed-sdk": "1.1.0",
+    "mobx": "4.5.2",
+    "mobx-react": "6.1.4",
+    "react-dev-utils": "4.2.1",
+    "styled-components": "3.4.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -29,12 +34,6 @@
     "eject": "react-scripts eject"
   },
   "proxy": "http://localhost:3000",
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -47,13 +46,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.11.0",
-    "@typescript-eslint/parser": "^4.11.0",
-    "eslint": "^7.16.0",
-    "eslint-config-prettier": "^7.1.0",
-    "eslint-plugin-prettier": "^3.3.0",
-    "eslint-plugin-react": "^7.21.5",
-    "prettier": "^2.2.1"
-  }
+  "devDependencies": {}
 }
