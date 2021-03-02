@@ -6,7 +6,6 @@ interface Props {
 export default class MeetingView extends Component<Props> {
     private viewModel;
     constructor(props: Props);
-    private get colonSeparator();
     render(): JSX.Element;
 }
 export {};

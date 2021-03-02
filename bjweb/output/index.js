@@ -64,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "0574c2ed1f5ec3787fcf";
+/******/ 	var hotCurrentHash = "6eb2d895ac7ba1337a0e";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -35301,13 +35301,215 @@ let JoiningView = class JoiningView extends react_1.Component {
         super(props);
     }
     render() {
-        return (react_1.default.createElement(Common_1.JoiningMessage, null, "Joining the Meeting Please wait!"));
+        return (react_1.default.createElement(Common_1.JoiningMessage, null));
     }
 };
 JoiningView = __decorate([
     mobx_react_1.observer
 ], JoiningView);
 exports.default = JoiningView;
+
+
+/***/ }),
+
+/***/ "./src/views/MeetingView.tsx":
+/*!***********************************!*\
+  !*** ./src/views/MeetingView.tsx ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const mobx_react_1 = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-react/dist/mobx-react.module.js");
+const MeetingViewModel_1 = __importDefault(__webpack_require__(/*! ./MeetingViewModel */ "./src/views/MeetingViewModel.ts"));
+const MeetingView_1 = __webpack_require__(/*! ./styles/MeetingView */ "./src/views/styles/MeetingView.ts");
+let MeetingView = class MeetingView extends react_1.Component {
+    constructor(props) {
+        super(props);
+        this.viewModel = new MeetingViewModel_1.default(props.managers);
+    }
+    render() {
+        return react_1.default.createElement(MeetingView_1.MeetingControlContainer, null);
+    }
+};
+MeetingView = __decorate([
+    mobx_react_1.observer
+], MeetingView);
+exports.default = MeetingView;
+
+
+/***/ }),
+
+/***/ "./src/views/MeetingViewModel.ts":
+/*!***************************************!*\
+  !*** ./src/views/MeetingViewModel.ts ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const mobx_1 = __webpack_require__(/*! mobx */ "./node_modules/mobx/lib/mobx.module.js");
+class MeetingViewModel {
+    constructor(managers) {
+        this.appManager = managers.appManager;
+        this.embedSDKManager = managers.embedSDKManager;
+    }
+    get joinName() {
+        return (this.embedSDKManager.selfParticipant && this.embedSDKManager.selfParticipant.name) ? this.embedSDKManager.selfParticipant.name : "EmbedGuest";
+    }
+    get participantsCount() {
+        return this.embedSDKManager.participants ? this.embedSDKManager.participants.length : 1;
+    }
+    get meetingStatus() {
+        let meetingStatus = "";
+        switch (this.embedSDKManager.connectionState) {
+            case "Connecting":
+                meetingStatus = "Connecting to Meeting";
+                break;
+            case "Connected":
+                meetingStatus = "Connected to Meeting";
+                break;
+            case "Reconnecting":
+                meetingStatus = "Reconnecting to Meeting";
+                break;
+            case "Disconnected":
+                meetingStatus = "Disconnected from Meeting";
+                break;
+        }
+        return meetingStatus;
+    }
+    get contentStatus() {
+        return this.embedSDKManager.sharingScreen ? "Content sharing" : this.embedSDKManager.receivingScreenShare ? "Receiving" : "Not Receiving";
+    }
+    get audioStatus() {
+        return this.embedSDKManager.audioMuted ? "UnMute Audio" : "Mute Audio";
+    }
+    get videoStatus() {
+        return this.embedSDKManager.videoMuted ? "UnMute Video" : "Mute Video";
+    }
+    get sharingStatus() {
+        return this.embedSDKManager.sharingScreen ? "Stop sharing" : "Start sharing";
+    }
+    get callControlInfo() {
+        return this.isDisconnected ? "ReJoin Meeting" : "Leave Meeting";
+    }
+    get isDisconnected() {
+        return (this.embedSDKManager.connectionState === "Disconnected");
+    }
+    setJoinName(event) {
+        let joinName = event.target.value;
+        if (joinName) {
+            this.embedSDKManager.setName(joinName);
+        }
+    }
+    toggleVideoState() {
+        this.embedSDKManager.setVideoMuted();
+    }
+    toggleAudioState() {
+        this.embedSDKManager.setAudioMuted();
+    }
+    toggleScreenShare() {
+        if (this.embedSDKManager.sharingScreen) {
+            this.embedSDKManager.stopScreenShare();
+        }
+        else {
+            this.embedSDKManager.startScreenShare();
+        }
+    }
+    leaveMeeting() {
+        if (this.isDisconnected) {
+            let joinProps = this.appManager.joinProps;
+            let iframeSelectorId = joinProps.iFrameProps.selectorId;
+            document.querySelector(iframeSelectorId).removeChild(document.querySelector(iframeSelectorId).childNodes[0]);
+            this.embedSDKManager.joinMeeting(this.appManager.joinProps);
+        }
+        else {
+            this.embedSDKManager.leave();
+        }
+    }
+}
+__decorate([
+    mobx_1.computed
+], MeetingViewModel.prototype, "joinName", null);
+__decorate([
+    mobx_1.computed
+], MeetingViewModel.prototype, "participantsCount", null);
+__decorate([
+    mobx_1.computed
+], MeetingViewModel.prototype, "meetingStatus", null);
+__decorate([
+    mobx_1.computed
+], MeetingViewModel.prototype, "contentStatus", null);
+__decorate([
+    mobx_1.computed
+], MeetingViewModel.prototype, "audioStatus", null);
+__decorate([
+    mobx_1.computed
+], MeetingViewModel.prototype, "videoStatus", null);
+__decorate([
+    mobx_1.computed
+], MeetingViewModel.prototype, "sharingStatus", null);
+__decorate([
+    mobx_1.computed
+], MeetingViewModel.prototype, "callControlInfo", null);
+__decorate([
+    mobx_1.computed
+], MeetingViewModel.prototype, "isDisconnected", null);
+__decorate([
+    mobx_1.action.bound
+], MeetingViewModel.prototype, "setJoinName", null);
+__decorate([
+    mobx_1.action.bound
+], MeetingViewModel.prototype, "toggleVideoState", null);
+__decorate([
+    mobx_1.action.bound
+], MeetingViewModel.prototype, "toggleAudioState", null);
+__decorate([
+    mobx_1.action.bound
+], MeetingViewModel.prototype, "toggleScreenShare", null);
+__decorate([
+    mobx_1.action.bound
+], MeetingViewModel.prototype, "leaveMeeting", null);
+exports.default = MeetingViewModel;
 
 
 /***/ }),
@@ -35644,6 +35846,7 @@ const mobx_react_1 = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-
 const mobx_1 = __webpack_require__(/*! mobx */ "./node_modules/mobx/lib/mobx.module.js");
 const AppManager_1 = __webpack_require__(/*! ../stores/AppManager */ "./src/stores/AppManager.ts");
 const PreMeetingView_1 = __importDefault(__webpack_require__(/*! ./PreMeetingView */ "./src/views/PreMeetingView.tsx"));
+const MeetingView_1 = __importDefault(__webpack_require__(/*! ./MeetingView */ "./src/views/MeetingView.tsx"));
 const JoiningView_1 = __importDefault(__webpack_require__(/*! ./JoiningView */ "./src/views/JoiningView.tsx"));
 const AppViewModel_1 = __importDefault(__webpack_require__(/*! ./AppViewModel */ "./src/views/AppViewModel.ts"));
 const Common_1 = __webpack_require__(/*! ./styles/Common */ "./src/views/styles/Common.ts");
@@ -35657,7 +35860,7 @@ let SampleApp = class SampleApp extends react_1.Component {
             case AppManager_1.AppState.PRE_MEETING:
                 return this.viewModel.joiningStarted ? (react_1.default.createElement(JoiningView_1.default, null)) : (react_1.default.createElement(PreMeetingView_1.default, { managers: this.props.managers }));
             case AppManager_1.AppState.IN_MEETING:
-            //return <MeetingView managers={ this.props.managers }/>
+                return react_1.default.createElement(MeetingView_1.default, { managers: this.props.managers });
         }
     }
     render() {
@@ -35699,12 +35902,13 @@ exports.TextBox = styled_components_1.default.input `
     border-radius: 4px;
 `;
 exports.IFrameHolder = styled_components_1.default("div") `
-    width: 70%;
+    width: 90%;
     height: 720px;
-    position: absolute;
+    position: fixed;
     display: ${props => props.show ? "inline-block" : "none"}
-    top: 50px;
-    right: 20px;
+    top: 15%;
+    left: 5%;
+    right: 5%;
 `;
 exports.JoiningMessage = styled_components_1.default.div `
     width: 300px;
@@ -35713,6 +35917,66 @@ exports.JoiningMessage = styled_components_1.default.div `
     font-size: 26px;
     font-style: italic;
     white-space: pre-wrap;
+`;
+
+
+/***/ }),
+
+/***/ "./src/views/styles/MeetingView.ts":
+/*!*****************************************!*\
+  !*** ./src/views/styles/MeetingView.ts ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.JoinName = exports.LeaveControlButton = exports.MeetingControlButton = exports.MeetingDetailsTableContent = exports.MeetingDetailsTableData = exports.MeetingDetailsTableRow = exports.MeetingDetailsTableBody = exports.MeetingDetailsTable = exports.MeetingControlContainer = void 0;
+const styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+const Common_1 = __webpack_require__(/*! ./Common */ "./src/views/styles/Common.ts");
+exports.MeetingControlContainer = styled_components_1.default.div `
+    width: 400px;
+    margin-top: 80px;
+    margin-left: 30px;
+`;
+exports.MeetingDetailsTable = styled_components_1.default.table `
+    
+`;
+exports.MeetingDetailsTableBody = styled_components_1.default.tbody `
+    
+`;
+exports.MeetingDetailsTableRow = styled_components_1.default.tr `
+`;
+exports.MeetingDetailsTableData = styled_components_1.default.td `
+`;
+exports.MeetingDetailsTableContent = styled_components_1.default.div `
+    margin: 8px auto;
+    width: 180px;
+`;
+exports.MeetingControlButton = styled_components_1.default.button `
+    width: 180px;
+    display: block;
+    padding: 4px;
+    margin: 8px auto;
+    border-radius: 4px;
+    background: black;
+    color: white;
+    font-size: 14px;
+    font-weight: bolder;
+    cursor: pointer;
+`;
+exports.LeaveControlButton = styled_components_1.default(exports.MeetingControlButton) `
+    width: 232px;
+    margin: 36px auto;
+    padding: 8px;
+    font-size: 18px;
+`;
+exports.JoinName = styled_components_1.default(Common_1.TextBox) `
+    width: 160px;
 `;
 
 
@@ -35731,7 +35995,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PropsHint = exports.PropsSpecs = exports.IFrameProps = exports.IFrameLabel = exports.IFramePropsContainer = exports.BGColorHint = exports.BGColorTextBox = exports.BGColorTextLabel = exports.BGOptionContainer = exports.CheckBox = exports.OptionsData = exports.OptionsHeader = exports.UIOptions = exports.UIOptionsContainer = exports.JoinButton = exports.JoinName = exports.Passcode = exports.MeetingID = exports.MeetingInfoContainer = exports.GreetingsSubHeader = exports.GreetingsHeader = exports.ViewContainer = void 0;
+exports.PropsHint = exports.PropsSpecs = exports.IFrameProps = exports.IFrameLabel = exports.IFramePropsContainer = exports.BGColorHint = exports.BGColorTextBox = exports.BGColorTextLabel = exports.CheckBox = exports.JoinButton = exports.JoinName = exports.Passcode = exports.MeetingID = exports.MeetingInfoContainer = exports.GreetingsSubHeader = exports.GreetingsHeader = exports.ViewContainer = void 0;
 const styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 const Common_1 = __webpack_require__(/*! ./Common */ "./src/views/styles/Common.ts");
 exports.ViewContainer = styled_components_1.default.div `
@@ -35767,26 +36031,7 @@ exports.JoinButton = styled_components_1.default.button `
   font-weight: bolder;
   cursor: pointer;
 `;
-exports.UIOptionsContainer = styled_components_1.default.table `
-  text-align: left;
-  margin-top: 8px;
-  background: lightgray;
-`;
-exports.UIOptions = styled_components_1.default.tbody ``;
-exports.OptionsHeader = styled_components_1.default.span `
-  display: block;
-  text-align: left;
-  font-weight: bolder;
-  margin-top: 30px;
-`;
-exports.OptionsData = styled_components_1.default.td `
-  min-width: 300px;
-`;
 exports.CheckBox = styled_components_1.default.input ``;
-exports.BGOptionContainer = styled_components_1.default.div `
-  background: lightgray;
-  padding: 10px;
-`;
 exports.BGColorTextLabel = styled_components_1.default.span ``;
 exports.BGColorTextBox = styled_components_1.default(Common_1.TextBox) `
   width: 400px;
@@ -35809,9 +36054,8 @@ exports.IFrameLabel = styled_components_1.default.span `
   margin-bottom: 10px;
 `;
 exports.IFrameProps = styled_components_1.default.div `
-  background: darkgray;
   text-align: left;
-  padding: 8px;
+  padding: 0px;
 `;
 exports.PropsSpecs = styled_components_1.default.input `
   display: inline-block;

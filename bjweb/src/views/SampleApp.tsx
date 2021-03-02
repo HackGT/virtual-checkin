@@ -31,7 +31,7 @@ export default class SampleApp extends Component<Props> {
           <PreMeetingView managers={this.props.managers} />
         );
       case AppState.IN_MEETING:
-      //return <MeetingView managers={ this.props.managers }/>
+        return <MeetingView managers={ this.props.managers }/>
     }
   }
 

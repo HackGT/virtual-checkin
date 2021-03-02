@@ -13,7 +13,7 @@ export default class JoiningView extends Component<Props> {
 
     render() {
         return (
-            <JoiningMessage>Joining the Meeting Please wait!</JoiningMessage>
+            <JoiningMessage></JoiningMessage>
         )
     }
 }

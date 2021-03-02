@@ -9,11 +9,13 @@ export const ViewContainer = styled.div`
 export const GreetingsHeader = styled.div`
   font-size: 36px;
   margin: 8px;
+  color: white;
 `;
 
 export const GreetingsSubHeader = styled.div`
   font-size: 24px;
   margin: 16px;
+  color: white;
   // font-family: cursive;
 `;
 
@@ -42,31 +44,7 @@ export const JoinButton = styled.button`
   cursor: pointer;
 `;
 
-export const UIOptionsContainer = styled.table`
-  text-align: left;
-  margin-top: 8px;
-  background: lightgray;
-`;
-
-export const UIOptions = styled.tbody``;
-
-export const OptionsHeader = styled.span`
-  display: block;
-  text-align: left;
-  font-weight: bolder;
-  margin-top: 30px;
-`;
-
-export const OptionsData = styled.td`
-  min-width: 300px;
-`;
-
 export const CheckBox = styled.input``;
-
-export const BGOptionContainer = styled.div`
-  background: lightgray;
-  padding: 10px;
-`;
 
 export const BGColorTextLabel = styled.span``;
 
@@ -95,9 +73,8 @@ export const IFrameLabel = styled.span`
 `;
 
 export const IFrameProps = styled.div`
-  background: darkgray;
   text-align: left;
-  padding: 8px;
+  padding: 0px;
 `;
 
 export const PropsSpecs = styled.input`
