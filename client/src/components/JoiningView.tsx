@@ -5,7 +5,7 @@ import { JoiningMessage } from "./styles/Common";
 interface Props {}
 
 @observer
-export default class JoiningView extends Component<Props> {
+class JoiningView extends Component<Props> {
 
     constructor(props: Props) {
         super(props);
@@ -17,3 +17,6 @@ export default class JoiningView extends Component<Props> {
         )
     }
 }
+
+export default JoiningView
+

@@ -5,8 +5,8 @@ import EmbedSDKManager from "../stores/EmbedSDKManager";
 
 export default class MeetingViewModel {
 
-    private appManager : AppManager;
-    private embedSDKManager : EmbedSDKManager;
+    appManager : AppManager;
+    embedSDKManager : EmbedSDKManager;
 
     constructor(managers : Managers) {
         this.appManager = managers.appManager;
@@ -60,7 +60,7 @@ export default class MeetingViewModel {
         return this.isDisconnected ? "ReJoin Meeting" : "Leave Meeting"
     }
 
-    @computed private get isDisconnected() : boolean {
+    @computed get isDisconnected() : boolean {
         return (this.embedSDKManager.connectionState === "Disconnected");
     }
 
@@ -89,9 +89,11 @@ export default class MeetingViewModel {
 
     @action.bound leaveMeeting() : void {
         if(this.isDisconnected) {
-            let joinProps = this.appManager.joinProps;
-            let iframeSelectorId = joinProps.iFrameProps.selectorId;
-            document.querySelector(iframeSelectorId).removeChild(document.querySelector(iframeSelectorId).childNodes[0])
+            //let joinProps = this.appManager.joinProps;
+            //let iframeSelectorId = joinProps.iFrameProps.selectorId as string;
+            // let iframe = document.querySelector(iframeSelectorId) as HTMLIFrameElement;
+            // iframe.removeChild(iframe.childNodes[0])
+            //document.querySelector(iframeSelectorId).removeChild(document.querySelector(iframeSelectorId).childNodes[0])
             this.embedSDKManager.joinMeeting(this.appManager.joinProps)
         } else {
             this.embedSDKManager.leave()

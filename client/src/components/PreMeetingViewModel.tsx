@@ -4,10 +4,15 @@ import Managers from "../stores/Managers";
 import EmbedSDKManager from "../stores/EmbedSDKManager";
 import AppManager from "../stores/AppManager";
 
-export default class PreMeetingViewModel {
 
-    private embedSDKManager : EmbedSDKManager;
-    private appManager : AppManager;
+
+
+
+
+class PreMeetingViewModel {
+
+    embedSDKManager : EmbedSDKManager;
+    appManager : AppManager;
     @observable meetingID : string = "";
     @observable passcode : string = "";
     @observable joinName : string = "";
@@ -95,7 +100,7 @@ export default class PreMeetingViewModel {
         this.embedSDKManager.joinMeeting(this.joinprops)
     }
 
-    private get joinprops() : JoinProps {
+    get joinprops() : JoinProps {
         return {
             meetingInfo : this.meetingInfo,
             iFrameProps : this.iFrameProps,
@@ -103,7 +108,7 @@ export default class PreMeetingViewModel {
         } 
     }
 
-    private get meetingInfo() : MeetingInfo {
+    get meetingInfo() : MeetingInfo {
         return {
             meetingId : this.meetingID,
             passcode : this.passcode,
@@ -111,7 +116,7 @@ export default class PreMeetingViewModel {
         }
     }
 
-    private get uiProps() : UIProps {
+    get uiProps() : UIProps {
         return {
             disableFullScreenToggle : this.disableFullScreenToggle,
             hideFooter : this.hideMeetingFooter,
@@ -125,7 +130,7 @@ export default class PreMeetingViewModel {
         }
     }
 
-    private get iFrameProps() : IFrameProps {
+    get iFrameProps() : IFrameProps {
         return {
             width : this.meetingContainerWidth,
             height : this.meetingContainerHeight,
@@ -133,3 +138,5 @@ export default class PreMeetingViewModel {
         }
     }
 }
+
+export default PreMeetingViewModel;

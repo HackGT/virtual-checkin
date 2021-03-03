@@ -10,20 +10,20 @@ import {
   Passcode,
   JoinName,
   JoinButton,
-  UIOptionsContainer,
-  UIOptions,
-  OptionsHeader,
-  OptionsData,
-  CheckBox,
-  BGOptionContainer,
-  BGColorTextLabel,
-  BGColorTextBox,
-  BGColorHint,
-  IFramePropsContainer,
-  IFrameLabel,
-  IFrameProps,
-  PropsSpecs,
-  PropsHint,
+  // UIOptionsContainer,
+  // UIOptions,
+  // OptionsHeader,
+  // OptionsData,
+  // CheckBox,
+  // BGOptionContainer,
+  // BGColorTextLabel,
+  // BGColorTextBox,
+  // BGColorHint,
+  // IFramePropsContainer,
+  // IFrameLabel,
+  // IFrameProps,
+  // PropsSpecs,
+  // PropsHint,
 } from "./styles/PreMeeting";
 import PreMeetingViewModel from "./PreMeetingViewModel";
 
@@ -32,9 +32,9 @@ interface Props {
 }
 
 @observer
-export default class PreMeetingView extends Component<Props> {
-  private managers: Managers;
-  private viewmodel: PreMeetingViewModel;
+class PreMeetingView extends Component<Props> {
+  // managers: Managers;
+  viewmodel: PreMeetingViewModel;
 
   constructor(props: Props) {
     super(props);
@@ -75,3 +75,4 @@ export default class PreMeetingView extends Component<Props> {
     );
   }
 }
+export default PreMeetingView;

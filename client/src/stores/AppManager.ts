@@ -9,7 +9,7 @@ export enum AppState {
 
 export default class AppManager {
 
-    private embedSDKManager : EmbedSDKManager;
+    embedSDKManager : EmbedSDKManager;
 
     @observable joinProps : JoinProps;
     @observable isJoiningMeeting : boolean

@@ -2,9 +2,9 @@ import { computed } from "mobx";
 import Managers from "../stores/Managers";
 import AppManager, { AppState } from "../stores/AppManager";
 
-export default class AppViewModel {
+class AppViewModel {
 
-    private appManager : AppManager;
+    appManager : AppManager;
 
     constructor(managers : Managers) {
         this.appManager = managers.appManager;
@@ -22,3 +22,4 @@ export default class AppViewModel {
         return this.joiningStarted || !!this.appManager.joinProps;
     }
 }
+export default AppViewModel;

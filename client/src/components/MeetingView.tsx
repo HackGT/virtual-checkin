@@ -4,14 +4,14 @@ import Managers from "../stores/Managers";
 import MeetingViewModel from "./MeetingViewModel";
 import {
   MeetingControlContainer,
-  MeetingDetailsTable,
-  MeetingDetailsTableBody,
-  MeetingDetailsTableRow,
-  MeetingDetailsTableContent,
+  // MeetingDetailsTable,
+  // MeetingDetailsTableBody,
+  // MeetingDetailsTableRow,
+  // MeetingDetailsTableContent,
   MeetingDetailsTableData,
-  MeetingControlButton,
-  JoinName,
-  LeaveControlButton,
+  // MeetingControlButton,
+  // JoinName,
+  // LeaveControlButton,
 } from "./styles/MeetingView";
 
 interface Props {
@@ -19,15 +19,15 @@ interface Props {
 }
 
 @observer
-export default class MeetingView extends Component<Props> {
-  private viewModel: MeetingViewModel;
+class MeetingView extends Component<Props> {
+  viewModel: MeetingViewModel;
 
   constructor(props: Props) {
     super(props);
     this.viewModel = new MeetingViewModel(props.managers);
   }
 
-  private get colonSeparator(): JSX.Element {
+  get colonSeparator(): JSX.Element {
     return <MeetingDetailsTableData></MeetingDetailsTableData>;
   }
 
@@ -35,3 +35,5 @@ export default class MeetingView extends Component<Props> {
     return <MeetingControlContainer></MeetingControlContainer>;
   }
 }
+
+export default MeetingView;
