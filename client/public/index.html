@@ -30,7 +30,7 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <script src="timeme.js"></script>
     <script type="text/javascript">
-      var socket = new WebSocket("ws://localhost:8080");
+      var socket = new WebSocket("ws://localhost:3000/echo");
       const start = Date.now();
       let delta = 0;
       setInterval(function() {

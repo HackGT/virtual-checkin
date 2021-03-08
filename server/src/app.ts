@@ -7,12 +7,16 @@ import cors from "cors";
 import dotenv from "dotenv";
 import {Server} from "ws";
 import http from "http";
+import expressWs from 'express-ws';
 
 dotenv.config();
 
 const VERSION_NUMBER = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../package.json"), "utf8")).version;
 const PORT = process.env.PORT || 3000;
-export let app = express();
+
+let appBase = express();
+let wsInstance = expressWs(appBase);
+export let {app} = wsInstance;
 
 
 app.use(morgan("dev"));
@@ -75,9 +79,15 @@ app.listen(PORT, () => {
     console.log(`Virtual Check-in system v${VERSION_NUMBER} started on port ${PORT}`);
 });
 
-const wss = new Server({server: app, port: 8080});
-wss.on('connection', (ws) => {
+/*
+const wss = new Server({
+    server: app, 
+    port: 8080
+});
+
+wss.on('connection', (ws, req) => {
     console.log('Client connected');
+    console.log()
     const start = Date.now();
     let delta;
     setInterval(function() {
@@ -91,5 +101,12 @@ wss.on('connection', (ws) => {
         console.log('Client disconnected')
     });
 });
+*/
+
+app.ws('/echo', function(ws, req) {
+    ws.on('message', function(msg) {
+      ws.send(msg);
+    });
+  });
 
 app.disable('etag');
